@@ -24,7 +24,12 @@ public class Main {
     }
 
     @GetMapping("/")
-    public String greet(){
-        return "Welcome to Your SpringBoot App";
+    public GreetResponse greet(){
+//    public String greet(){
+//        return "Welcome to Your SpringBoot App";
+          return new GreetResponse("Welcome to Your First Spring Boot Application");
+//        To Return a JSON Object, we can do Something like -
     }
+
+    record GreetResponse(String greet){}
 }
