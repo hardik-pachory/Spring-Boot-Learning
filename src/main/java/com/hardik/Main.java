@@ -4,6 +4,9 @@ package com.hardik;
 //    class act as a Spring Boot Application Entry Point
 // 2. The class should run the SpringBoot Application
 
+// Spring Boot Application has three type of web apps - Servlet, Reactive, and None.
+// None will not start any server.
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
