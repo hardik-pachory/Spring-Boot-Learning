@@ -12,40 +12,13 @@ package com.hardik;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @SpringBootApplication
-@RestController
 public class Main {
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         SpringApplication.run(Main.class, args);
     }
 
-    @GetMapping("/")
-    public GreetResponse greet(){
-//    public String greet(){
-//        return "Welcome to Your SpringBoot App";
-          return new GreetResponse(
-                  "Welcome to Your First Spring Boot Application",
-                  List.of("Java", "JavaScript", "Python"),
-                  new Person("Hardik"),
-                  25
-          );
-//        To Return a JSON Object, we can do Something like -
-    }
-
-    record Person(
-            String name
-    ){}
-
-    record GreetResponse(
-            String greet,
-            List<String> langKnown,
-            Person person,
-            int age
-    ){}
 }
