@@ -13,6 +13,7 @@ package com.hardik;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,11 +27,13 @@ public class Main {
     }
 
     @GetMapping("/")
-    public GreetResponse greet(){
+    public GreetResponse greet(
+            @RequestParam(value = "name", required = false) String name){
 //    public String greet(){
 //        return "Welcome to Your SpringBoot App";
+          String message = name==null || name.isBlank() ? "Hello!" : "Hello, " + name + "!";
           return new GreetResponse(
-                  "Welcome to Your First Spring Boot Application",
+                  message,
                   List.of("Java", "JavaScript", "Python"),
                   new Person("Hardik"),
                   25
