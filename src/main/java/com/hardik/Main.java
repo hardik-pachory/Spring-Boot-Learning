@@ -16,18 +16,37 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @SpringBootApplication
 @RestController
 public class Main {
+
+    // Fake DB
+    private static List<Customer> customers;
+
+    static{
+        customers = new ArrayList<>();
+
+        Customer alex = new Customer(1,"Alex","alex@mail.com",21);
+        customers.add(alex);
+
+        Customer rubina = new Customer(2, "Rubina","rubina@mail.com",19);
+        customers.add(rubina);
+    }
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         SpringApplication.run(Main.class, args);
     }
 
-    class Customer{
+    @GetMapping("api/v1/customer")
+    public List<Customer> getCustomers(){
+        return customers;
+    }
+
+    static class Customer{
         private Integer id;
         private String name;
         private String email;
