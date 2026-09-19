@@ -12,13 +12,19 @@ package com.hardik;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 
 @SpringBootApplication
 public class Main {
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(Main.class, args);
+        System.out.println("\n\n APPLICATION CONTEXT \n\n");
+        String[] beanDefinitionNames = configurableApplicationContext.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
     }
 
 }
