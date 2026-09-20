@@ -10,6 +10,9 @@ package com.hardik;
 // For any class to have REST EndPoints, the class should have the annotation
 // of the RestController to mark it as the class having endpoint mappings.
 
+// Jackson is the package responsible for converting the Java Objects into the JSON
+// and vice versa.
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
