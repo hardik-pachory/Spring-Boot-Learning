@@ -16,6 +16,7 @@ package com.hardik;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 
 
 @SpringBootApplication
@@ -23,8 +24,19 @@ public class Main {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(Main.class, args);
-        System.out.println("\n\n APPLICATION CONTEXT \n\n");
-        String[] beanDefinitionNames = configurableApplicationContext.getBeanDefinitionNames();
+        printBeans(configurableApplicationContext);
+    }
+
+    @Bean
+    public Foo getFoo(){
+        return new Foo("Bar");
+    }
+
+    record Foo(String name){}
+
+    private static void printBeans(ConfigurableApplicationContext ctx){
+        System.out.println("\n\n Printing the Beans \n\n");
+        String[] beanDefinitionNames = ctx.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
             System.out.println(beanDefinitionName);
         }
