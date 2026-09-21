@@ -24,15 +24,8 @@ public class Main {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(Main.class, args);
-        printBeans(configurableApplicationContext);
+//        printBeans(configurableApplicationContext);
     }
-
-    @Bean
-    public Foo getFoo(){
-        return new Foo("Bar");
-    }
-
-    record Foo(String name){}
 
     private static void printBeans(ConfigurableApplicationContext ctx){
         System.out.println("\n\n Printing the Beans \n\n");

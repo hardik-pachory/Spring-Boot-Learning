@@ -4,3 +4,6 @@ server:
 spring:
   main:
     web-application-type: servlet
+  web:
+    error:
+      include-message: always
