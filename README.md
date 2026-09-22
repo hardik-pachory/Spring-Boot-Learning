@@ -6,3 +6,5 @@ The code also contains some of the documentation/notes for understanding and lea
 Checking the Github Desktop, and it's usability in tracking changes.
 
 I prefer git CLI over this GUI.
+
+Dummy Merge for Today, about to start postgreSQL congif on the Spring Boot App
