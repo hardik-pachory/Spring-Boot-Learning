@@ -1,5 +1,6 @@
 package com.hardik.customer;
 
+import com.hardik.exception.ResourceNotFound;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class CustomerService {
     public Customer getCustomer(Integer id){
         return customerDao.selectCustomerById(id)
                 .orElseThrow(
-                        ()-> new IllegalArgumentException("Customer with Id [%s] not found.".formatted(id))
+                        ()-> new ResourceNotFound("Customer with Id [%s] not found.".formatted(id))
                 );
     }
 }
