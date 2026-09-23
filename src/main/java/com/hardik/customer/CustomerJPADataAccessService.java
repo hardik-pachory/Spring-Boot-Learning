@@ -34,7 +34,7 @@ public class CustomerJPADataAccessService implements CustomerDao{
         return customerRepository.existsCustomerByEmail(email);
     }
 
-    @Override
+      @Override
     public void deleteCustomer(Integer customerId) {
         customerRepository.deleteById(customerId);
     }
@@ -42,6 +42,11 @@ public class CustomerJPADataAccessService implements CustomerDao{
     @Override
     public boolean existsPersonWithId(Integer Id) {
         return customerRepository.existsById(Id);
+    }
+
+    @Override
+    public void updateCustomer(Customer customer) {
+        customerRepository.save(customer);
     }
 
 }

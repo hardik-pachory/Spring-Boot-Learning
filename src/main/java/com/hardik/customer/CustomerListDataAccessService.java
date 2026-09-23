@@ -54,4 +54,9 @@ public class CustomerListDataAccessService implements CustomerDao{
     public boolean existsPersonWithId(Integer Id) {
         return false;
     }
+
+    @Override
+    public void updateCustomer(Customer customer) {
+
+    }
 }
