@@ -21,10 +21,15 @@ package com.hardik;
 // 4. "psql -U hardikpac" : This is to switch to your user rather than using the root.
 
 
+import com.hardik.customer.Customer;
+import com.hardik.customer.CustomerRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+
+import java.util.List;
 
 
 @SpringBootApplication
@@ -33,6 +38,16 @@ public class Main {
     public static void main(String[] args) {
         ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(Main.class, args);
 //        printBeans(configurableApplicationContext);
+    }
+
+    @Bean
+    CommandLineRunner runner(CustomerRepository customerRepository){
+        return args -> {
+            Customer alex = new Customer("Alex","alex@mail.com",21);
+            Customer rubina = new Customer("Rubina","rubina@mail.com",19);
+            List<Customer> customers = List.of(alex, rubina);
+            //customerRepository.saveAll(customers);
+        };
     }
 
     private static void printBeans(ConfigurableApplicationContext ctx){
