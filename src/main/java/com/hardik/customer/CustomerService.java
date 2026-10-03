@@ -15,7 +15,7 @@ public class CustomerService {
 
 //    So we have name the Dao Implementation - jpa and list. So whatever implementation we want to use, we can just
 //    mention the name in the qualifier.
-    public CustomerService(@Qualifier("jpa") CustomerDao customerDao) {
+    public CustomerService(@Qualifier("jdbc") CustomerDao customerDao) {
         this.customerDao = customerDao;
     }
 
